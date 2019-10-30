@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("button#get_data").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https://api.airtable.com/v0/appchomlKhH2n3ymU/North%20American%20travel%20cities?api_key=keyGcmZ9P5QNwLepv";
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appchomlKhH2n3ymU/North%20American%20travel%20cities?api_key=keyc1CgitILfZVCTA";
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
                $.each(result.records, function(key,value) {
