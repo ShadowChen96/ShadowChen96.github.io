@@ -49,8 +49,8 @@ $(document).ready(function(){
                     type : 'bar'
                 },
                 axis: {
-                  x: {label: 'Product'},
-                  y: {label: '# of Items'}
+                  x: {label: 'Airlines'},
+                  y: {label: 'rate of on-time'}
                 },
                 bar: {
                     title: "# of Items by Product Category:",
