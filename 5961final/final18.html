@@ -28,8 +28,8 @@
         rel="stylesheet" type="text/css">
         <style type="text/css">
             #map {
-                                                                                                  height: 100%;
-                                                                                                }
+                                                                                                          height: 100%;
+                                                                                                        }
         </style>
         <link rel="stylesheet" href="final2.css">
     </head>
@@ -104,6 +104,7 @@
                             <br>
                             <div id="map" style="width: 700px; height: 400px"></div>
                             <h1 class="text-center">14 MAIN CITIES THAT RECOMMEND YOU TO GO.</h1>
+                            <hr>
                         </div>
                         <!-- column -->
                     </div>
@@ -116,40 +117,40 @@
         <!-- container -->
         <script>
             var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
-                                                                                        
-                                                                                            var map = L.map('map')
-                                                                                                  .addLayer(mapboxTiles)
-                                                                                                  .setView([34.053544, -118.253508], 3);
-                                                                                        
-                                                                                        
-                                                                                            var items = [];
-                                                                                            var airtable_read_endpoint = "https://api.airtable.com/v0/appvqIFiqAlAwvb2B/map?api_key=keyc1CgitILfZVCTA";
-                                                                                        
-                                                                                            var data = [];
-                                                                                            $.getJSON(airtable_read_endpoint, function(result) {
-                                                                                                   $.each(result.records, function(key,value) {
-                                                                                                       items = {};
-                                                                                                           items["name"] = value.fields.Name;
-                                                                                                           items["url"] = value.fields.url;
-                                                                                                           items["image_url"] = value.fields.img_url;
-                                                                                                           items["latitud"] = value.fields.Lat;
-                                                                                                           items["longitud"] = value.fields.Lng;
-                                                                                                           data.push(items);
-                                                                                                           console.log(items);
-                                                                                                    }); // end .each
-                                                                                            }); // end getJSON
+                                                                                                
+                                                                                                    var map = L.map('map')
+                                                                                                          .addLayer(mapboxTiles)
+                                                                                                          .setView([34.053544, -118.253508], 3);
+                                                                                                
+                                                                                                
+                                                                                                    var items = [];
+                                                                                                    var airtable_read_endpoint = "https://api.airtable.com/v0/appvqIFiqAlAwvb2B/map?api_key=keyc1CgitILfZVCTA";
+                                                                                                
+                                                                                                    var data = [];
+                                                                                                    $.getJSON(airtable_read_endpoint, function(result) {
+                                                                                                           $.each(result.records, function(key,value) {
+                                                                                                               items = {};
+                                                                                                                   items["name"] = value.fields.Name;
+                                                                                                                   items["url"] = value.fields.url;
+                                                                                                                   items["image_url"] = value.fields.img_url;
+                                                                                                                   items["latitud"] = value.fields.Lat;
+                                                                                                                   items["longitud"] = value.fields.Lng;
+                                                                                                                   data.push(items);
+                                                                                                                   console.log(items);
+                                                                                                            }); // end .each
+                                                                                                    }); // end getJSON
         </script>
         <script>
             function show_districts(){
-                                                                                        
-                                                                                              for (var i in data) {
-                                                                                                  var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
-                                                                                                  L.marker( latlng )
-                                                                                                      .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
-                                                                                                      .addTo(map);
-                                                                                              }
-                                                                                        
-                                                                                            }
+                                                                                                
+                                                                                                      for (var i in data) {
+                                                                                                          var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+                                                                                                          L.marker( latlng )
+                                                                                                              .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+                                                                                                              .addTo(map);
+                                                                                                      }
+                                                                                                
+                                                                                                    }
         </script>
         <iframe class="airtable-embed" src="https://airtable.com/embed/shrhrCcQXVqWY1ntH?backgroundColor=red&amp;viewControls=on"
         frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
@@ -175,7 +176,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 contenteditable="true">LOS ANGELES</h3>
+                        <h1 contenteditable="true">LOS ANGELES</h1>
                     </div>
                 </div>
             </div>
@@ -213,7 +214,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 contenteditable="true">SAN DEIGO</h3>
+                        <h1 contenteditable="true">SAN DEIGO</h1>
                     </div>
                 </div>
             </div>
@@ -245,7 +246,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 contenteditable="true">LAS VEGAS</h3>
+                        <h1 contenteditable="true">LAS VEGAS</h1>
                     </div>
                 </div>
             </div>
@@ -274,7 +275,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>SAN FRANCISCO</h1>
+                        <h1 contenteditable="true">SAN FRANCISCO</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -487,7 +488,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Heading</h1>
+                        <h1>PHILLADELPHIA</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -510,7 +511,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Heading</h1>
+                        <h1>ORLANDO</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -533,6 +534,11 @@
         <div class="section">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h1>MIAMI</h1>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-3">
                         <img src="2981568911494_.pic.jpg" class="img-responsive">
                         <h2>The Miami Beach</h2>
@@ -551,6 +557,11 @@
         </div>
         <div class="section">
             <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>HAVANA</h1>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3">
                         <img src="2491568360410_.pic_hd.jpg" class="img-responsive">
@@ -573,6 +584,185 @@
                 </div>
             </div>
         </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center text-danger">VISA STRATEGY</h1>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe class="airtable-embed" src="https://airtable.com/embed/shrXLsiwrxoKAZiPd?backgroundColor=red&amp;viewControls=on"
+        frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center text-danger">TRAFFIC FORM</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">FOR SOME NEARBY CITIES, AIRPLANE IS NOT THE BEST TRAFFIC FORM, INSTEAD,
+                            HERE ARE SOME CAR OR BUS SUGGESTIONS TO VISIT SOME CITIES</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe class="airtable-embed" src="https://airtable.com/embed/shr9K91t2iWQOqTjg?backgroundColor=red&amp;viewControls=on"
+        frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="section">
+            <div class="container"></div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center text-danger">AIRLINE</h1>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">HERE ARE SOME POPULAR AIR COMPANIES, AND THEIR PERFORMANCE ANALYSIS.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2 contenteditable="true">America Airline</h2>
+                        <p contenteditable="true">Popular area:&nbsp;The whole America
+                            <br>Confrotable rate: AAAAA
+                            <br>Frequency rate: 🌟🌟</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2>United Airline</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2>A title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2>A title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
+                        <h2>A ttile</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+        
+            $("button#hide_h2").click(function() {
+                $("h2").hide(500);
+            });
+        
+            $("button#show_h2").click(function() {
+                $("h2").show(300);
+                $("h2").css("color","blue");
+                $("h2").html("You clicked me hard.");
+            });
+        
+            $("button#clear_screen").click(function() {
+                var $x = $("container");
+                $x.empty();
+            });
+        
+            
+        
+             $("button#get_data2").click(function() {
+              var items = [];
+              var i = 0;
+              var airtable_read_endpoint = "https://api.airtable.com/v0/appjGYVVopfUpDhIn/Table%201?api_key=keyc1CgitILfZVCTA";
+              var dataSet = [];
+              $.getJSON(airtable_read_endpoint, function(result) {
+                     $.each(result.records, function(key,value) {
+                         items = [];
+                             items.push(value.fields.product);
+                             items.push(value.fields.totalamount);
+                             dataSet.push(items);
+                             console.log(items);
+                      }); // end .each
+                      console.log(dataSet);
+        
+                   $('#table2').DataTable( {
+                       data: dataSet,
+                       retrieve: true,
+                       columns: [
+                           { title: "Airline Company",
+                             defaultContent:""},
+                           { title: "Average On-time performance%",
+                               defaultContent:"" },
+                       ]
+                   } );
+        
+                   var chart = c3.generate({
+                        data: {
+                            columns: dataSet,
+                            type : 'bar'
+                        },
+                        axis: {
+                          x: {label: 'Airlines'},
+                          y: {label: 'rate of on-time'}
+                        },
+                        bar: {
+                            title: "# of Items by Product Category:",
+                        }
+                    });
+        
+              }); // end .getJSON
+        
+           }); // end button
+        
+        }); // document ready
+        </script>
         <div class="section">
             <div class="container">
                 <div class="row text-center">
