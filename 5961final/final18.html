@@ -22,13 +22,13 @@
         rel="stylesheet" type="text/css">
         <style type="text/css">
             #map {
-                                  height: 100%;
-                                }
+                                                                                                                          height: 100%;
+                                                                                                                        }
         </style>
     </head>
     
     <body>
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -45,19 +45,19 @@
                             <a href="#">HOME</a>
                         </li>
                         <li>
-                            <a href="#">LANDSCAPES</a>
+                            <a href="#landscapes">LANDSCAPES</a>
                         </li>
                         <li>
-                            <a href="#">VISA STRATEGY</a>
+                            <a href="#strategy">VISA STRATEGY</a>
                         </li>
                         <li>
-                            <a href="#">TRAFFIC FORM</a>
+                            <a href="#traffic">TRAFFIC FORM</a>
                         </li>
                         <li>
-                            <a href="#">AIRLINE</a>
+                            <a href="#airline">AIRLINE</a>
                         </li>
                         <li>
-                            <a href="#">FOOTER</a>
+                            <a href="#footer">FOOTER</a>
                         </li>
                     </ul>
                 </div>
@@ -95,40 +95,40 @@
         <!-- container -->
         <script>
             var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                            var map = L.map('map')
-                                                                                                                                                                                                                                                                                  .addLayer(mapboxTiles)
-                                                                                                                                                                                                                                                                                  .setView([34.053544, -118.253508], 3);
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                            var items = [];
-                                                                                                                                                                                                                                                                            var airtable_read_endpoint = "https://api.airtable.com/v0/appvqIFiqAlAwvb2B/map?api_key=keyc1CgitILfZVCTA";
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                            var data = [];
-                                                                                                                                                                                                                                                                            $.getJSON(airtable_read_endpoint, function(result) {
-                                                                                                                                                                                                                                                                                   $.each(result.records, function(key,value) {
-                                                                                                                                                                                                                                                                                       items = {};
-                                                                                                                                                                                                                                                                                           items["name"] = value.fields.Name;
-                                                                                                                                                                                                                                                                                           items["url"] = value.fields.url;
-                                                                                                                                                                                                                                                                                           items["image_url"] = value.fields.img_url;
-                                                                                                                                                                                                                                                                                           items["latitud"] = value.fields.Lat;
-                                                                                                                                                                                                                                                                                           items["longitud"] = value.fields.Lng;
-                                                                                                                                                                                                                                                                                           data.push(items);
-                                                                                                                                                                                                                                                                                           console.log(items);
-                                                                                                                                                                                                                                                                                    }); // end .each
-                                                                                                                                                                                                                                                                            }); // end getJSON
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                    var map = L.map('map')
+                                                                                                                                                                                                                                                                                                                                                                          .addLayer(mapboxTiles)
+                                                                                                                                                                                                                                                                                                                                                                          .setView([34.053544, -118.253508], 3);
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                    var items = [];
+                                                                                                                                                                                                                                                                                                                                                                    var airtable_read_endpoint = "https://api.airtable.com/v0/appvqIFiqAlAwvb2B/map?api_key=keyc1CgitILfZVCTA";
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                    var data = [];
+                                                                                                                                                                                                                                                                                                                                                                    $.getJSON(airtable_read_endpoint, function(result) {
+                                                                                                                                                                                                                                                                                                                                                                           $.each(result.records, function(key,value) {
+                                                                                                                                                                                                                                                                                                                                                                               items = {};
+                                                                                                                                                                                                                                                                                                                                                                                   items["name"] = value.fields.Name;
+                                                                                                                                                                                                                                                                                                                                                                                   items["url"] = value.fields.url;
+                                                                                                                                                                                                                                                                                                                                                                                   items["image_url"] = value.fields.img_url;
+                                                                                                                                                                                                                                                                                                                                                                                   items["latitud"] = value.fields.Lat;
+                                                                                                                                                                                                                                                                                                                                                                                   items["longitud"] = value.fields.Lng;
+                                                                                                                                                                                                                                                                                                                                                                                   data.push(items);
+                                                                                                                                                                                                                                                                                                                                                                                   console.log(items);
+                                                                                                                                                                                                                                                                                                                                                                            }); // end .each
+                                                                                                                                                                                                                                                                                                                                                                    }); // end getJSON
         </script>
         <script>
             function show_districts(){
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                              for (var i in data) {
-                                                                                                                                                                                                                                                                                  var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
-                                                                                                                                                                                                                                                                                  L.marker( latlng )
-                                                                                                                                                                                                                                                                                      .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
-                                                                                                                                                                                                                                                                                      .addTo(map);
-                                                                                                                                                                                                                                                                              }
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                      for (var i in data) {
+                                                                                                                                                                                                                                                                                                                                                                          var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+                                                                                                                                                                                                                                                                                                                                                                          L.marker( latlng )
+                                                                                                                                                                                                                                                                                                                                                                              .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+                                                                                                                                                                                                                                                                                                                                                                              .addTo(map);
+                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                    }
         </script>
         <iframe class="airtable-embed" src="https://airtable.com/embed/shrhrCcQXVqWY1ntH?backgroundColor=red&amp;viewControls=on"
         frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
@@ -141,687 +141,739 @@
                 </div>
             </div>
         </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-danger" style:="background-color:black">LANDSCAPES</h1>
+        <section class="1" id="landscapes">
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header">
+                                <h1 contenteditable="true">
+                                    <br>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="text-center text-danger" style:="background-color:black">LANDSCAPES</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 contenteditable="true">LOS ANGELES</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 contenteditable="true">LOS ANGELES</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2591568787905_.pic.jpg" class="img-responsive">
-                        <h2>Hollywood Sign</h2>
-                        <p>The landmark of LA, it locates in the northwest direction of LA, drive
-                            up to the mountain then you can see the best view.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2581568787847_.pic.jpg" class="img-responsive">
-                        <h2>The Pink Wall</h2>
-                        <p>A good place for girls to take photo, it locates near the Beverly Hill.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2611568788260_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Universal Studio</h2>
-                        <p>I highly suggest the Transformer program, which is a 4D roller coaster
-                            with excellent experience.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2621568788355_.pic 2.27.38 AM.jpg" class="img-responsive">
-                        <h2>Disney Land</h2>
-                        <p>the land has two sites, you are only allowed to visit one in a day, so
-                            decide which one you prefer before arrived.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 contenteditable="true">SAN DEIGO</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2591568787905_.pic.jpg" class="img-responsive">
+                            <h2>Hollywood Sign</h2>
+                            <p>The landmark of LA, it locates in the northwest direction of LA, drive
+                                up to the mountain then you can see the best view.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2581568787847_.pic.jpg" class="img-responsive">
+                            <h2>The Pink Wall</h2>
+                            <p>A good place for girls to take photo, it locates near the Beverly Hill.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2611568788260_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Universal Studio</h2>
+                            <p>I highly suggest the Transformer program, which is a 4D roller coaster
+                                with excellent experience.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2621568788355_.pic 2.27.38 AM.jpg" class="img-responsive">
+                            <h2>Disney Land</h2>
+                            <p>the land has two sites, you are only allowed to visit one in a day, so
+                                decide which one you prefer before arrived.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2641568788465_.pic.jpg" class="img-responsive">
-                        <h2>Potato chip rock</h2>
-                        <p>A best place for hiking, and take a photo with standing on the chip.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2381568359166_.pic_hd.jpg" class="img-responsive">
-                        <h2>California Temple</h2>
-                        <p>A giant temple near the freeway, deserved to visit and take a photo, you
-                            may not allowed to walk inside.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2571568787788_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Victory Kiss</h2>
-                        <p>It was located near the sea and there are some warship museums around,
-                            pay for visit.</p>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 contenteditable="true">SAN DEIGO</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 contenteditable="true">LAS VEGAS</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2641568788465_.pic.jpg" class="img-responsive">
+                            <h2>Potato chip rock</h2>
+                            <p>A best place for hiking, and take a photo with standing on the chip.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2381568359166_.pic_hd.jpg" class="img-responsive">
+                            <h2>California Temple</h2>
+                            <p>A giant temple near the freeway, deserved to visit and take a photo, you
+                                may not allowed to walk inside.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2571568787788_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Victory Kiss</h2>
+                            <p>It was located near the sea and there are some warship museums around,
+                                pay for visit.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2551568787695_.pic.jpg" class="img-responsive">
-                        <h2>Performing show</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-                            <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-                            <br>Ut enim ad minim veniam, quis nostrud</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2651568788604_.pic (2).jpg" class="img-responsive">
-                        <h2>Casino</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-                            <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-                            <br>Ut enim ad minim veniam, quis nostrud</p>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 contenteditable="true">LAS VEGAS</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 contenteditable="true">SAN FRANCISCO</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="WechatIMG408.jpeg" class="img-responsive">
-                        <h2>Golden Gate Bridge</h2>
-                        <p>There are four angles to see the bridge, bring a jacket, or you will feel
-                            overwhelmed.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2701568789463_.pic.jpg" class="img-responsive">
-                        <h2>Lombard Street</h2>
-                        <p>Locate at the downtown SF, The road to there was very steep, drive safely.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="WechatIMG407.jpeg" class="img-responsive img-rounded">
-                        <h2>Fisherman's Wharf</h2>
-                        <p>Don't forget to have some seafood, and travel 1-2 hours by ship around
-                            the golden gate bridge.</p>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2551568787695_.pic.jpg" class="img-responsive">
+                            <h2>Performing show</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+                                <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+                                <br>Ut enim ad minim veniam, quis nostrud</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2651568788604_.pic (2).jpg" class="img-responsive">
+                            <h2>Casino</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+                                <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+                                <br>Ut enim ad minim veniam, quis nostrud</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>SEATTLE</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 contenteditable="true">SAN FRANCISCO</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2431568359336_.pic_hd.jpg" class="img-responsive">
-                        <h2>Public Market</h2>
-                        <p>It is a retail market at downtown Seattle, such as toys, seafood, flowers,
-                            painting, earrings.... and the world's first Starbucks is located nearby</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2731568790825_.pic_hd.jpg" class="img-responsive">
-                        <h2>The world's first Starbucks shop</h2>
-                        <p>Same location with public market, always crowed, many people line up outside.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2741568790905_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Space Needle</h2>
-                        <p>The landmark of Seattle, go up and watch the overview of the whole city</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2721568790734_.pic.jpg" class="img-responsive">
-                        <h2>Starbucks Factory</h2>
-                        <p>The factory store is big, you can see how the coffee bean being processing
-                            and you can buy some beautiful souvenirs there.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="WechatIMG408.jpeg" class="img-responsive">
+                            <h2>Golden Gate Bridge</h2>
+                            <p>There are four angles to see the bridge, bring a jacket, or you will feel
+                                overwhelmed.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2701568789463_.pic.jpg" class="img-responsive">
+                            <h2>Lombard Street</h2>
+                            <p>Locate at the downtown SF, The road to there was very steep, drive safely.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="WechatIMG407.jpeg" class="img-responsive img-rounded">
+                            <h2>Fisherman's Wharf</h2>
+                            <p>Don't forget to have some seafood, and travel 1-2 hours by ship around
+                                the golden gate bridge.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>VANVOUVER</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>SEATTLE</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2451568359737_.pic_hd.jpg" class="img-responsive">
-                        <h2>Granville island</h2>
-                        <p>A market place for gift shopping, honestly there are not many sight spot
-                            in Vancouver, I recommend to go there for disco dancing.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>TORONTO</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2751568792257_.pic_hd.jpg" class="img-responsive">
-                        <h2>CN Tower</h2>
-                        <p>Locate near the Ontario lake, go up the tower to take a wonderful dinner
-                            and a bird's-eye-view of the whole city.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2391568359167_.pic_hd.jpg" class="img-responsive">
-                        <h2>Town Hall</h2>
-                        <p>A landmark with city name, a must-go place to take photo.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2761568792329_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Niagara fall</h2>
-                        <p>Nearly one hour car journey from the downtown Toronto, a wonderful natural
-                            landscape locate at the border of the U.S. and Canada.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2431568359336_.pic_hd.jpg" class="img-responsive">
+                            <h2>Public Market</h2>
+                            <p>It is a retail market at downtown Seattle, such as toys, seafood, flowers,
+                                painting, earrings.... and the world's first Starbucks is located nearby</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2731568790825_.pic_hd.jpg" class="img-responsive">
+                            <h2>The world's first Starbucks shop</h2>
+                            <p>Same location with public market, always crowed, many people line up outside.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2741568790905_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Space Needle</h2>
+                            <p>The landmark of Seattle, go up and watch the overview of the whole city</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2721568790734_.pic.jpg" class="img-responsive">
+                            <h2>Starbucks Factory</h2>
+                            <p>The factory store is big, you can see how the coffee bean being processing
+                                and you can buy some beautiful souvenirs there.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>QUEBEC</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>VANVOUVER</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2771568869695_.pic_hd.jpg" class="img-responsive">
-                        <h2>Little Champlain Street</h2>
-                        <p>A street for retail shopping, take the lift from the square or walk a
-                            little bit long way, really closed to the Castle hotel.Ut enim ad minim
-                            veniam, quis nostrud</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2781568869887_.pic (1).jpg" class="img-responsive">
-                        <h2>Castle Hotel</h2>
-                        <p>The landmark of Quebec, a hotel designed like a castle, go to the hillside,
-                            sit on the grass (in summer) and see the whole scene.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2451568359737_.pic_hd.jpg" class="img-responsive">
+                            <h2>Granville island</h2>
+                            <p>A market place for gift shopping, honestly there are not many sight spot
+                                in Vancouver, I recommend to go there for disco dancing.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>BOSTON</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>TORONTO</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="3011568963144_.pic.jpg" class="img-responsive">
-                        <h2>Harvard University</h2>
-                        <p>Really not many typical place to visit, Harvard University and eating
-                            lobster may be enough. Or go to some small chapels and harbors.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="WechatIMG410.jpeg" class="img-responsive img-rounded">
-                        <h2>Berklee Music College</h2>
-                        <p>World's famous music school, many chinese celebrities have studied there.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>NEW YORK</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2961568910085_.pic.jpg" class="img-responsive">
-                        <h2>Time Square</h2>
-                        <p>The most fancy place in America, suggest go there by walking, because
-                            there are always crowed. there are many souvenir shop and restaurant around,
-                            The Broadway theater and Hell's Kitchen are also nearby&nbsp;</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2821568888816_.pic.jpg" class="img-responsive">
-                        <h2>Empire Building</h2>
-                        <p>Buy the tour tickets inside the building, nearly $40/person, if you go
-                            there in winter, take a thick coat, or you will feel overwhelmed. &nbsp;</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2801568871866_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>The Statue of Liberty</h2>
-                        <p>Take boats from any harbors in downtown or New Jersey, when you land,
-                            take a wonderful picture!</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2901568907487_.pic.jpg" class="img-responsive">
-                        <h2>Metropolitan Museum of Art</h2>
-                        <p>Located in the central park, good place for people who loves art history,
-                            you can reserve your jackets and belongings at the entrance.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2751568792257_.pic_hd.jpg" class="img-responsive">
+                            <h2>CN Tower</h2>
+                            <p>Locate near the Ontario lake, go up the tower to take a wonderful dinner
+                                and a bird's-eye-view of the whole city.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2391568359167_.pic_hd.jpg" class="img-responsive">
+                            <h2>Town Hall</h2>
+                            <p>A landmark with city name, a must-go place to take photo.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2761568792329_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Niagara fall</h2>
+                            <p>Nearly one hour car journey from the downtown Toronto, a wonderful natural
+                                landscape locate at the border of the U.S. and Canada.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2851568894104_.pic.jpg" class="img-responsive">
-                        <h2>Central Park</h2>
-                        <p>Suggest go there in October, which is the best time to see the wonderful
-                            maple view. You also can feed the squirrels and have a jogging.</p>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>QUEBEC</h1>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <img src="2861568894105_.pic.jpg" class="img-responsive">
-                        <h2>Brooklyn Bridge</h2>
-                        <p>The Brooklyn Bridge and Manhattan Bridge are same location that connect
-                            the long Island and Manhattan, it is giant and amazing, suggest walk along
-                            the bridge and photo view will be wonderful.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2811568872027_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Manhattan Bridge</h2>
-                        <p>The Manhattan Bridge and Brooklyn Bridge are same location that connect
-                            the long Island and Manhattan, this photo view was took at the long island</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>PHILLADELPHIA</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2871568905463_.pic.jpg" class="img-responsive">
-                        <h2>Philly City Hall</h2>
-                        <p>One of the landmark of Philly, suggest to take Uber there, and it will
-                            be shinning during the Christmas.&nbsp;</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2881568906154_.pic.jpg" class="img-responsive">
-                        <h2>liberty Bell</h2>
-                        <p>One of the landmark that represents the independence of American. Good
-                            place to visit and take a photo.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2771568869695_.pic_hd.jpg" class="img-responsive">
+                            <h2>Little Champlain Street</h2>
+                            <p>A street for retail shopping, take the lift from the square or walk a
+                                little bit long way, really closed to the Castle hotel.Ut enim ad minim
+                                veniam, quis nostrud</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2781568869887_.pic (1).jpg" class="img-responsive">
+                            <h2>Castle Hotel</h2>
+                            <p>The landmark of Quebec, a hotel designed like a castle, go to the hillside,
+                                sit on the grass (in summer) and see the whole scene.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>ORLANDO</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>BOSTON</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="WechatIMG409.jpeg" class="img-responsive">
-                        <h2>Universal Studio</h2>
-                        <p>Orlando is famous of two playgrounds, one is Universal Studio, one is
-                            Disney Land.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="2921568909821_.pic.jpg" class="img-responsive">
-                        <h2>Disney Land</h2>
-                        <p contenteditable="true">The world's biggest Disney Land, it has 6 separate parks, only can visit
-                            one in a day. The firework in Magic Kingdom is amazing. There is honestly
-                            nothing else in Orlando except the Disney.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>MIAMI</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2981568911494_.pic.jpg" class="img-responsive">
-                        <h2>The Miami Beach</h2>
-                        <p>The most popular beach in Miami, there are many beaches, local White like
-                            the Miami Beach best. it located geographically at the Southeast corner
-                            of the city; the sand there is white and the air is fresh.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="3001568911675_.pic.jpg" class="img-responsive">
-                        <h2>Key West</h2>
-                        <p>The southernmost point of Mainland U.S. There is only one freeway that
-                            you can go there by car, the sea view along the road is amazing.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="3011568963144_.pic.jpg" class="img-responsive">
+                            <h2>Harvard University</h2>
+                            <p>Really not many typical place to visit, Harvard University and eating
+                                lobster may be enough. Or go to some small chapels and harbors.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="WechatIMG410.jpeg" class="img-responsive img-rounded">
+                            <h2>Berklee Music College</h2>
+                            <p>World's famous music school, many chinese celebrities have studied there.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>HAVANA</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>NEW YORK</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="2491568360410_.pic_hd.jpg" class="img-responsive">
-                        <h2>Revolution Square</h2>
-                        <p>The landmark of Havana, the portrait is Guevara, the revolution hero of
-                            Cuba. The square is big.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="3031568963648_.pic.jpg" class="img-responsive">
-                        <h2>Havana Old Town</h2>
-                        <p>The old town has so many special architectures and parks.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="3061568963761_.pic.jpg" class="img-responsive img-rounded">
-                        <h2>Bubble car</h2>
-                        <p>This is not a site but a special thing in Cuba, you can find the bubble
-                            car everywhere, most of them are taxi, you can ask the drivers to let you
-                            take photos but it may take extra charge.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-danger">VISA STRATEGY</h1>
-                        <hr>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2961568910085_.pic.jpg" class="img-responsive">
+                            <h2>Time Square</h2>
+                            <p>The most fancy place in America, suggest go there by walking, because
+                                there are always crowed. there are many souvenir shop and restaurant around,
+                                The Broadway theater and Hell's Kitchen are also nearby&nbsp;</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2821568888816_.pic.jpg" class="img-responsive">
+                            <h2>Empire Building</h2>
+                            <p>Buy the tour tickets inside the building, nearly $40/person, if you go
+                                there in winter, take a thick coat, or you will feel overwhelmed. &nbsp;</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2801568871866_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>The Statue of Liberty</h2>
+                            <p>Take boats from any harbors in downtown or New Jersey, when you land,
+                                take a wonderful picture!</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2901568907487_.pic.jpg" class="img-responsive">
+                            <h2>Metropolitan Museum of Art</h2>
+                            <p>Located in the central park, good place for people who loves art history,
+                                you can reserve your jackets and belongings at the entrance.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <iframe class="airtable-embed" src="https://airtable.com/embed/shrXLsiwrxoKAZiPd?backgroundColor=red&amp;viewControls=on"
-        frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-danger">TRAFFIC FORM</h1>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2851568894104_.pic.jpg" class="img-responsive">
+                            <h2>Central Park</h2>
+                            <p>Suggest go there in October, which is the best time to see the wonderful
+                                maple view. You also can feed the squirrels and have a jogging.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2861568894105_.pic.jpg" class="img-responsive">
+                            <h2>Brooklyn Bridge</h2>
+                            <p>The Brooklyn Bridge and Manhattan Bridge are same location that connect
+                                the long Island and Manhattan, it is giant and amazing, suggest walk along
+                                the bridge and photo view will be wonderful.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2811568872027_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Manhattan Bridge</h2>
+                            <p>The Manhattan Bridge and Brooklyn Bridge are same location that connect
+                                the long Island and Manhattan, this photo view was took at the long island</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <hr>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>PHILLADELPHIA</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-center">FOR SOME NEARBY CITIES, AIRPLANE IS NOT THE BEST TRAFFIC FORM, INSTEAD,
-                            HERE ARE SOME CAR OR BUS SUGGESTIONS TO VISIT SOME CITIES</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <iframe class="airtable-embed" src="https://airtable.com/embed/shr9K91t2iWQOqTjg?backgroundColor=red&amp;viewControls=on"
-        frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-        <div class="section">
-            <div class="container"></div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-danger">AIRLINE</h1>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-center">HERE ARE SOME POPULAR AIR COMPANIES, AND THEIR PERFORMANCE ANALYSIS.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG411.jpeg" class="img-responsive"></a>
-                        <h2 contenteditable="true">America Airline</h2>
-                        <p>Popular area:&nbsp;The whole America
-                            <br>Comfortable &nbsp;rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
-                    </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG412.jpeg" class="img-responsive"></a>
-                        <h2>United Airline</h2>
-                        <p>Popular area:&nbsp;The whole North America
-                            <br>Comfortable rate: AAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟🌟</p>
-                    </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG413.jpeg" class="img-responsive"></a>
-                        <h2>Spirit Airline</h2>
-                        <p>Popular area: Mainly for&nbsp;Nevada state, Florida state, and Illinois
-                            state
-                            <br>Comfortable rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG414.jpeg" class="img-responsive"></a>
-                        <h2>Delta Airline</h2>
-                        <p>Popular area:&nbsp;The whole America
-                            <br>Comfortable rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
-                    </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG415.jpeg" class="img-responsive"></a>
-                        <h2>JetBlue Airline</h2>
-                        <p>Popular area: Northeast America and Florida state&nbsp;
-                            <br>Comfortable rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟</p>
-                    </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG416.jpeg" class="img-responsive"></a>
-                        <h2>Alaska Airline</h2>
-                        <p>Popular area:&nbsp;Alaska state, Washington state, and Oregon state
-                            <br>Comfortable rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2871568905463_.pic.jpg" class="img-responsive">
+                            <h2>Philly City Hall</h2>
+                            <p>One of the landmark of Philly, suggest to take Uber there, and it will
+                                be shinning during the Christmas.&nbsp;</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2881568906154_.pic.jpg" class="img-responsive">
+                            <h2>liberty Bell</h2>
+                            <p>One of the landmark that represents the independence of American. Good
+                                place to visit and take a photo.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG417.jpeg" class="img-responsive"></a>
-                        <h2>Southwest Airline</h2>
-                        <p>Popular area: Southwest and middle area in mainland America.&nbsp;
-                            <br>Comfortable rate: AAAAAA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>ORLANDO</h1>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG419.jpeg" class="img-responsive"></a>
-                        <h2>China Eastern Airline</h2>
-                        <p>Popular area: Eastern area in China represented by Shanghai and mostly
-                            are international airline.&nbsp;
-                            <br>Comfortable rate: AAAAAA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
-                    </div>
-                    <div class="col-md-4">
-                        <a><img src="WechatIMG418.jpeg" class="img-responsive"></a>
-                        <h2>Air Canada Airline</h2>
-                        <p>Popular area: Canada and core cities in North America&nbsp;
-                            <br>Comfortable rate: AAAAA
-                            <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="WechatIMG409.jpeg" class="img-responsive">
+                            <h2>Universal Studio</h2>
+                            <p>Orlando is famous of two playgrounds, one is Universal Studio, one is
+                                Disney Land.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="2921568909821_.pic.jpg" class="img-responsive">
+                            <h2>Disney Land</h2>
+                            <p contenteditable="true">The world's biggest Disney Land, it has 6 separate parks, only can visit
+                                one in a day. The firework in Magic Kingdom is amazing. There is honestly
+                                nothing else in Orlando except the Disney.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <h2 class="text-center">Airline's On-time Performance</h2>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body"></div>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>MIAMI</h1>
+                        </div>
                     </div>
-                    <!-- end card -->
-                    <!-- Sign and date the page, it's only polite! -->
-                    <button type="button" class="btn btn-block btn-primary btn-sm" id="get_data2">Show Total</button>
-                    <br>
-                    <div class="table-responsive">
-                        <table id="table2" width="100%" class="table table-bordered"></table>
-                    </div>
-                    <!-- table responsive -->
-                    <div id="chart"></div>
-                </div>
-                <!-- row -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!--end row -->
-        <!-- container -->
-        <script>
-            $(document).ready(function(){
-                    
-                    $("button#hide_h2").click(function() {
-                        $("h2").hide(500);
-                    });
-                    
-                    $("button#show_h2").click(function() {
-                        $("h2").show(300);
-                        $("h2").css("color","blue");
-                        $("h2").html("You clicked me hard.");
-                    });
-                    
-                    $("button#clear_screen").click(function() {
-                        var $x = $("container");
-                        $x.empty();
-                    });
-                    
-                    
-                    
-                     $("button#get_data2").click(function() {
-                      var items = [];
-                      var i = 0;
-                      var airtable_read_endpoint = "https://api.airtable.com/v0/appjGYVVopfUpDhIn/Table%201?api_key=keyc1CgitILfZVCTA";
-                      var dataSet = [];
-                      $.getJSON(airtable_read_endpoint, function(result) {
-                             $.each(result.records, function(key,value) {
-                                 items = [];
-                                     items.push(value.fields.product);
-                                     items.push(value.fields.totalamount);
-                                     dataSet.push(items);
-                                     console.log(items);
-                              }); // end .each
-                              console.log(dataSet);
-                    
-                           $('#table2').DataTable( {
-                               data: dataSet,
-                               retrieve: true,
-                               columns: [
-                                   { title: "Airline Company",
-                                     defaultContent:""},
-                                   { title: "Average On-time performance%",
-                                       defaultContent:"" },
-                               ]
-                           } );
-                    
-                           var chart = c3.generate({
-                                data: {
-                                    columns: dataSet,
-                                    type : 'bar'
-                                },
-                                axis: {
-                                  x: {label: 'Airlines'},
-                                  y: {label: 'rate of on-time'}
-                                },
-                                bar: {
-                                    title: "# of Items by Product Category:",
-                                }
-                            });
-                    
-                      }); // end .getJSON
-                    
-                    }); // end button
-                    
-                    }); // document ready
-        </script>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-danger">FOOTER</h1>
-                        <hr>
-                        <p class="text-center">BELOW ARE SOME ASSOCIATED BRANDS, USE THEM TO ACTUALIZE YOUR CHOICE.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2981568911494_.pic.jpg" class="img-responsive">
+                            <h2>The Miami Beach</h2>
+                            <p>The most popular beach in Miami, there are many beaches, local White like
+                                the Miami Beach best. it located geographically at the Southeast corner
+                                of the city; the sand there is white and the air is fresh.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="3001568911675_.pic.jpg" class="img-responsive">
+                            <h2>Key West</h2>
+                            <p>The southernmost point of Mainland U.S. There is only one freeway that
+                                you can go there by car, the sea view along the road is amazing.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-xs-3 col-md-1"></div>
-                    <div class="col-xs-3 col-md-1">
-                        <a href="#"><img src="WechatIMG420.jpeg" class="img-responsive"></a>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>HAVANA</h1>
+                        </div>
                     </div>
-                    <div class="col-xs-3 col-md-2"></div>
-                    <div class="col-xs-3 col-md-1">
-                        <a href="#"><img src="WechatIMG424.jpeg" class="img-responsive"></a>
-                    </div>
-                    <div class="col-xs-3 col-md-2"></div>
-                    <div class="col-xs-3 col-md-1">
-                        <a href="#"><img src="WechatIMG425.jpeg" class="img-responsive"></a>
-                    </div>
-                    <div class="col-xs-3 col-md-2"></div>
-                    <div class="col-xs-3 col-md-1">
-                        <a href="#"><img src="WechatIMG423.jpeg" class="img-responsive"></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <hr>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="2491568360410_.pic_hd.jpg" class="img-responsive">
+                            <h2>Revolution Square</h2>
+                            <p>The landmark of Havana, the portrait is Guevara, the revolution hero of
+                                Cuba. The square is big.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="3031568963648_.pic.jpg" class="img-responsive">
+                            <h2>Havana Old Town</h2>
+                            <p>The old town has so many special architectures and parks.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="3061568963761_.pic.jpg" class="img-responsive img-rounded">
+                            <h2>Bubble car</h2>
+                            <p>This is not a site but a special thing in Cuba, you can find the bubble
+                                car everywhere, most of them are taxi, you can ask the drivers to let you
+                                take photos but it may take extra charge.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <section class="2" id="strategy">
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                                <div class="page-header">
+                                    <h1>
+                                        <br>
+                                    </h1>
+                                </div>
+                                <h1 class="text-center text-danger">VISA STRATEGY</h1>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <iframe class="airtable-embed" src="https://airtable.com/embed/shrXLsiwrxoKAZiPd?backgroundColor=red&amp;viewControls=on"
+                frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <section class="3" id="traffic">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="page-header">
+                                        <h1>
+                                            <br>
+                                        </h1>
+                                    </div>
+                                    <h1 class="text-center text-danger">TRAFFIC FORM</h1>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center">FOR SOME NEARBY CITIES, AIRPLANE IS NOT THE BEST TRAFFIC FORM, INSTEAD,
+                                    HERE ARE SOME CAR OR BUS SUGGESTIONS TO VISIT SOME CITIES</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <iframe class="airtable-embed" src="https://airtable.com/embed/shr9K91t2iWQOqTjg?backgroundColor=red&amp;viewControls=on"
+                frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <section class="4" id="airline">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="page-header">
+                                        <h1>
+                                            <br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center text-danger">AIRLINE</h1>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-center">HERE ARE SOME POPULAR AIR COMPANIES, AND THEIR PERFORMANCE ANALYSIS.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG411.jpeg" class="img-responsive"></a>
+                                    <h2 contenteditable="true">America Airline</h2>
+                                    <p>Popular area:&nbsp;The whole America
+                                        <br>Comfortable &nbsp;rate: AAAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG412.jpeg" class="img-responsive"></a>
+                                    <h2>United Airline</h2>
+                                    <p>Popular area:&nbsp;The whole North America
+                                        <br>Comfortable rate: AAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟🌟🌟</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG413.jpeg" class="img-responsive"></a>
+                                    <h2>Spirit Airline</h2>
+                                    <p>Popular area: Mainly for&nbsp;Nevada state, Florida state, and Illinois
+                                        state
+                                        <br>Comfortable rate: AAAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG414.jpeg" class="img-responsive"></a>
+                                    <h2>Delta Airline</h2>
+                                    <p>Popular area:&nbsp;The whole America
+                                        <br>Comfortable rate: AAAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG415.jpeg" class="img-responsive"></a>
+                                    <h2>JetBlue Airline</h2>
+                                    <p>Popular area: Northeast America and Florida state&nbsp;
+                                        <br>Comfortable rate: AAAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a><img src="WechatIMG416.jpeg" class="img-responsive"></a>
+                                    <h2>Alaska Airline</h2>
+                                    <p>Popular area:&nbsp;Alaska state, Washington state, and Oregon state
+                                        <br>Comfortable rate: AAAAA
+                                        <br>Frequency rate: 🌟🌟🌟🌟</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a><img src="WechatIMG417.jpeg" class="img-responsive"></a>
+                                <h2>Southwest Airline</h2>
+                                <p>Popular area: Southwest and middle area in mainland America.&nbsp;
+                                    <br>Comfortable rate: AAAAAA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                    <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                            </div>
+                            <div class="col-md-4">
+                                <a><img src="WechatIMG419.jpeg" class="img-responsive"></a>
+                                <h2>China Eastern Airline</h2>
+                                <p>Popular area: Eastern area in China represented by Shanghai and mostly
+                                    are international airline.&nbsp;
+                                    <br>Comfortable rate: AAAAAA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                    <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                            </div>
+                            <div class="col-md-4">
+                                <a><img src="WechatIMG418.jpeg" class="img-responsive"></a>
+                                <h2>Air Canada Airline</h2>
+                                <p>Popular area: Canada and core cities in North America&nbsp;
+                                    <br>Comfortable rate: AAAAA
+                                    <br>Frequency rate: 🌟🌟🌟🌟🌟</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <h2 class="text-center">Airline's On-time Performance</h2>
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body"></div>
+                            </div>
+                            <!-- end card -->
+                            <!-- Sign and date the page, it's only polite! -->
+                            <button type="button" class="btn btn-block btn-primary btn-sm" id="get_data2">Show Total</button>
+                            <br>
+                            <div class="table-responsive">
+                                <table id="table2" width="100%" class="table table-bordered"></table>
+                            </div>
+                            <!-- table responsive -->
+                            <div id="chart"></div>
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!--end row -->
+                <!-- container -->
+                <script>
+                    $(document).ready(function(){
+                                                                                                                                      
+                                                                                                                                      $("button#hide_h2").click(function() {
+                                                                                                                                          $("h2").hide(500);
+                                                                                                                                      });
+                                                                                                                                      
+                                                                                                                                      $("button#show_h2").click(function() {
+                                                                                                                                          $("h2").show(300);
+                                                                                                                                          $("h2").css("color","blue");
+                                                                                                                                          $("h2").html("You clicked me hard.");
+                                                                                                                                      });
+                                                                                                                                      
+                                                                                                                                      $("button#clear_screen").click(function() {
+                                                                                                                                          var $x = $("container");
+                                                                                                                                          $x.empty();
+                                                                                                                                      });
+                                                                                                                                      
+                                                                                                                                      
+                                                                                                                                      
+                                                                                                                                       $("button#get_data2").click(function() {
+                                                                                                                                        var items = [];
+                                                                                                                                        var i = 0;
+                                                                                                                                        var airtable_read_endpoint = "https://api.airtable.com/v0/appjGYVVopfUpDhIn/Table%201?api_key=keyc1CgitILfZVCTA";
+                                                                                                                                        var dataSet = [];
+                                                                                                                                        $.getJSON(airtable_read_endpoint, function(result) {
+                                                                                                                                               $.each(result.records, function(key,value) {
+                                                                                                                                                   items = [];
+                                                                                                                                                       items.push(value.fields.product);
+                                                                                                                                                       items.push(value.fields.totalamount);
+                                                                                                                                                       dataSet.push(items);
+                                                                                                                                                       console.log(items);
+                                                                                                                                                }); // end .each
+                                                                                                                                                console.log(dataSet);
+                                                                                                                                      
+                                                                                                                                             $('#table2').DataTable( {
+                                                                                                                                                 data: dataSet,
+                                                                                                                                                 retrieve: true,
+                                                                                                                                                 columns: [
+                                                                                                                                                     { title: "Airline Company",
+                                                                                                                                                       defaultContent:""},
+                                                                                                                                                     { title: "Average On-time performance%",
+                                                                                                                                                         defaultContent:"" },
+                                                                                                                                                 ]
+                                                                                                                                             } );
+                                                                                                                                      
+                                                                                                                                             var chart = c3.generate({
+                                                                                                                                                  data: {
+                                                                                                                                                      columns: dataSet,
+                                                                                                                                                      type : 'bar'
+                                                                                                                                                  },
+                                                                                                                                                  axis: {
+                                                                                                                                                    x: {label: 'Airlines'},
+                                                                                                                                                    y: {label: 'rate of on-time'}
+                                                                                                                                                  },
+                                                                                                                                                  bar: {
+                                                                                                                                                      title: "# of Items by Product Category:",
+                                                                                                                                                  }
+                                                                                                                                              });
+                                                                                                                                      
+                                                                                                                                        }); // end .getJSON
+                                                                                                                                      
+                                                                                                                                      }); // end button
+                                                                                                                                      
+                                                                                                                                      }); // document ready
+                </script>
+                <section class="5" id="footer">
+                    <div class="section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <div class="page-header">
+                                        <h1 contenteditable="true">
+                                            <br>
+                                        </h1>
+                                    </div>
+                                    <h1 class="text-center text-danger">FOOTER</h1>
+                                    <hr>
+                                    <p class="text-center">BELOW ARE SOME ASSOCIATED BRANDS, USE THEM TO ACTUALIZE YOUR CHOICE.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="container">
+                            <div class="row text-center">
+                                <div class="col-xs-3 col-md-1"></div>
+                                <div class="col-xs-3 col-md-1">
+                                    <a href="#"><img src="WechatIMG420.jpeg" class="img-responsive"></a>
+                                </div>
+                                <div class="col-xs-3 col-md-2"></div>
+                                <div class="col-xs-3 col-md-1">
+                                    <a href="#"><img src="WechatIMG424.jpeg" class="img-responsive"></a>
+                                </div>
+                                <div class="col-xs-3 col-md-2"></div>
+                                <div class="col-xs-3 col-md-1">
+                                    <a href="#"><img src="WechatIMG425.jpeg" class="img-responsive"></a>
+                                </div>
+                                <div class="col-xs-3 col-md-2"></div>
+                                <div class="col-xs-3 col-md-1">
+                                    <a href="#"><img src="WechatIMG423.jpeg" class="img-responsive"></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
     </body>
 
 </html>
